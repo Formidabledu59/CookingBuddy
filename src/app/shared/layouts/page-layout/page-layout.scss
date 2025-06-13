@@ -1,4 +1,57 @@
-// filepath: src/app/shared/layouts/page-layout/page-layout.scss
+.main-toolbar {
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  margin: 24px auto 16px auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 0 32px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #3f51b5;
+  margin-right: 40px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: 0.2s, color 0.2s;
+}
+
+.nav-links a.active-link,
+.nav-links a:hover {
+  background: #e3e8fd;
+  color: #3f51b5;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-info {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3f51b5;
+  background: #e3e8fd;
+  padding: 6px 16px;
+  border-radius: 6px;
+}
+
 .main-container {
   max-width: 1200px;
   margin: 32px auto 0 auto;
@@ -7,8 +60,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }

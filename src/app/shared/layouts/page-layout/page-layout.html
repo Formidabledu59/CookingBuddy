@@ -1,11 +1,14 @@
-<mat-toolbar color="primary">
-  <span style="font-weight: bold; margin-right: 32px;">CookingBuddy</span>
-  <a mat-button routerLink="/">Accueil</a>
-  <a mat-button routerLink="/recipes">Recettes</a>
-  <a mat-button routerLink="/login" *ngIf="!user">Connexion</a>
-  <a mat-button routerLink="/register" *ngIf="!user">Inscription</a>
+<mat-toolbar color="primary" class="main-toolbar">
+  <span class="brand">CookingBuddy</span>
+  <nav class="nav-links">
+    <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+    <a mat-button routerLink="/recipes" routerLinkActive="active-link">Recettes</a>
+    <a mat-button routerLink="/login" *ngIf="!user" routerLinkActive="active-link">Connexion</a>
+    <a mat-button routerLink="/register" *ngIf="!user" routerLinkActive="active-link">Inscription</a>
+  </nav>
   <span class="spacer"></span>
-<span *ngIf="user">Bonjour, {{ user.firstName }} {{ user.lastName }}</span></mat-toolbar>
+  <span *ngIf="user" class="user-info">Bonjour, {{ user.firstName }} {{ user.lastName }}</span>
+</mat-toolbar>
 <main class="main-container">
   <ng-content></ng-content>
 </main>
