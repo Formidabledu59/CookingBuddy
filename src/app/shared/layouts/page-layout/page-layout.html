@@ -1,8 +1,11 @@
-<!-- filepath: src/app/shared/layouts/page-layout/page-layout.html -->
 <mat-toolbar color="primary">
-  <span>CookingBuddy</span>
-  <!-- Futurs liens de navigation ici -->
-</mat-toolbar>
+  <span style="font-weight: bold; margin-right: 32px;">CookingBuddy</span>
+  <a mat-button routerLink="/">Accueil</a>
+  <a mat-button routerLink="/recipes">Recettes</a>
+  <a mat-button routerLink="/login" *ngIf="!user">Connexion</a>
+  <a mat-button routerLink="/register" *ngIf="!user">Inscription</a>
+  <span class="spacer"></span>
+<span *ngIf="user">Bonjour, {{ user.firstName }} {{ user.lastName }}</span></mat-toolbar>
 <main class="main-container">
   <ng-content></ng-content>
 </main>
