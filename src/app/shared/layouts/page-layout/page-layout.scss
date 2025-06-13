@@ -1,0 +1,10 @@
+// filepath: src/app/shared/layouts/page-layout/page-layout.scss
+.main-container {
+  max-width: 1200px;
+  margin: 32px auto 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
