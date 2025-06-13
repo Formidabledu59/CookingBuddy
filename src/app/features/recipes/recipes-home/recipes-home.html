@@ -1,0 +1,17 @@
+<app-page-layout>
+  <app-recipe-categories
+    [categories]="categories()"
+    [selectedCategory]="selectedCategory()"
+    (categoryChange)="onCategoryChange($event)">
+  </app-recipe-categories>
+
+  <ng-container *ngIf="selectedCategory(); else noCat">
+    <app-recipe-category
+      [recipes]="recipes() | async"
+      (recipeClick)="onRecipeClick($event)">
+    </app-recipe-category>
+  </ng-container>
+  <ng-template #noCat>
+    <p>Veuillez sélectionner une catégorie pour voir les recettes.</p>
+  </ng-template>
+</app-page-layout>
