@@ -18,4 +18,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/login/login-page/login-page').then(m => m.LoginPage),
   },
+  {
+    path: 'recipes',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/recipes/recipes-page/recipes-page').then(m => m.RecipesPageComponent),
+  },
 ];

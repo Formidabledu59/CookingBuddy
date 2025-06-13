@@ -1,0 +1,26 @@
+<app-page-layout>
+  <h2>Recettes par catégorie</h2>
+  <mat-form-field appearance="fill" style="width: 300px;">
+    <mat-label>Catégorie</mat-label>
+    <mat-select
+      [value]="selectedCategory()"
+      (selectionChange)="onCategoryChange($event.value)"
+    >
+      <mat-option *ngFor="let cat of categories() || []" [value]="cat">
+        {{ cat }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="recipes() | async as recipesList">
+    <div *ngIf="recipesList; else noRecipes">
+      <mat-card *ngFor="let recipe of recipesList" style="margin: 16px 0;">
+        <mat-card-title>{{ recipe.strMeal }}</mat-card-title>
+        <img mat-card-image [src]="recipe.strMealThumb" [alt]="recipe.strMeal" />
+      </mat-card>
+    </div>
+    <ng-template #noRecipes>
+      <p>Aucune recette trouvée pour cette catégorie.</p>
+    </ng-template>
+  </div>
+</app-page-layout>
