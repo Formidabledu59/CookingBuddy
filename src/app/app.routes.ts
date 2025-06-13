@@ -21,6 +21,6 @@ export const routes: Routes = [
     path: 'recipes',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./features/recipes/recipes-page/recipes-page').then(m => m.RecipesPageComponent),
+      import('./features/recipes/recipes-home/recipes-home').then(m => m.RecipesHomeComponent),
   },
 ];

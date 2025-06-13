@@ -6,13 +6,13 @@ import { MatCardModule } from '@angular/material/card';
 import { PageLayoutComponent } from '../../../shared/layouts/page-layout/page-layout';
 
 @Component({
-  selector: 'app-recipes-page',
+  selector: 'app-recipes-home',
   standalone: true,
   imports: [CommonModule, MatSelectModule, MatCardModule, PageLayoutComponent],
-  templateUrl: './recipes-page.html',
-  styleUrl: './recipes-page.scss',
+  templateUrl: './recipes-home.html',
+  styleUrl: './recipes-home.scss',
 })
-export class RecipesPageComponent {
+export class RecipesHomeComponent {
   private readonly recipesService = inject(RecipesService);
 
   selectedCategory = signal<string | null>(null);
