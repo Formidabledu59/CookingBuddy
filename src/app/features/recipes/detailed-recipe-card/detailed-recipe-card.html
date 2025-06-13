@@ -1,0 +1,18 @@
+<mat-card class="detailed-recipe-card">
+  <img mat-card-image [src]="recipe?.strMealThumb" [alt]="recipe?.strMeal" />
+  <mat-card-title>{{ recipe?.strMeal }}</mat-card-title>
+  <mat-card-content>
+    <div>Catégorie : {{ recipe?.strCategory }}</div>
+    <div>Origine : {{ recipe?.strArea }}</div>
+    <div *ngIf="recipe?.strInstructions">
+      <strong>Instructions :</strong>
+      <p>{{ recipe.strInstructions }}</p>
+    </div>
+    <div *ngIf="recipe?.ingredients?.length">
+      <strong>Ingrédients :</strong>
+      <ul>
+        <li *ngFor="let ing of recipe.ingredients">{{ ing }}</li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>
