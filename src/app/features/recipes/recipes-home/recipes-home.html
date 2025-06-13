@@ -1,26 +1,17 @@
 <app-page-layout>
-  <h2>Recettes par catégorie</h2>
-  <mat-form-field appearance="fill" style="width: 300px;">
-    <mat-label>Catégorie</mat-label>
-    <mat-select
-      [value]="selectedCategory()"
-      (selectionChange)="onCategoryChange($event.value)"
-    >
-      <mat-option *ngFor="let cat of categories() || []" [value]="cat">
-        {{ cat }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <app-recipe-categories
+    [categories]="categories()"
+    [selectedCategory]="selectedCategory()"
+    (categoryChange)="onCategoryChange($event)">
+  </app-recipe-categories>
 
-  <div *ngIf="recipes() | async as recipesList">
-    <div *ngIf="recipesList; else noRecipes">
-      <mat-card *ngFor="let recipe of recipesList" style="margin: 16px 0;">
-        <mat-card-title>{{ recipe.strMeal }}</mat-card-title>
-        <img mat-card-image [src]="recipe.strMealThumb" [alt]="recipe.strMeal" />
-      </mat-card>
-    </div>
-    <ng-template #noRecipes>
-      <p>Aucune recette trouvée pour cette catégorie.</p>
-    </ng-template>
-  </div>
+  <ng-container *ngIf="selectedCategory(); else noCat">
+    <app-recipe-category
+      [recipes]="recipes() | async"
+      (recipeClick)="onRecipeClick($event)">
+    </app-recipe-category>
+  </ng-container>
+  <ng-template #noCat>
+    <p>Veuillez sélectionner une catégorie pour voir les recettes.</p>
+  </ng-template>
 </app-page-layout>

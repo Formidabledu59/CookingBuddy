@@ -1,1 +1,8 @@
-<p>recipe-categories works!</p>
+<mat-form-field appearance="fill" style="width: 300px;">
+  <mat-label>Catégorie</mat-label>
+  <mat-select [value]="selectedCategory" (selectionChange)="categoryChange.emit($event.value)">
+    <mat-option *ngFor="let cat of categories" [value]="cat">
+      {{ cat }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

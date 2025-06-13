@@ -1,1 +1,4 @@
-<p>recipe-card works!</p>
+<mat-card class="recipe-card" (click)="recipeClick.emit(recipe)" style="cursor:pointer;">
+  <img mat-card-image [src]="recipe?.strMealThumb" [alt]="recipe?.strMeal" />
+  <mat-card-title>{{ recipe?.strMeal }}</mat-card-title>
+</mat-card>
